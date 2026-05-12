@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Grade Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Grade Tracker</h1>
+
+        <div class="form-container">
+            <input type="text" id="studentName" placeholder="Student Name" inputmode="text" pattern="[A-Za-zÀ-ÖØ-öø-ÿ' -]+" title="Only letters, spaces, apostrophes, and hyphens are allowed" />
+            <input type="number" id="studentGrade" placeholder="Grade (0-100)" />
+            <button id="addStudentBtn">Add Student</button>
+        </div>
+
+        <div class="average-section">
+            <h2>Average Grade: <span id="averageGrade">0</span></h2>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Grade</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="studentList">
+                <!-- Students will appear here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
