@@ -7,27 +7,13 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
     <div class="container">
         <h1>Student Grade Tracker</h1>
 
         <div class="form-container">
-            <input 
-                type="text" 
-                id="studentName" 
-                placeholder="Student Name" 
-                inputmode="text" 
-                pattern="[A-Za-zÀ-ÖØ-öø-ÿ' -]+" 
-                title="Only letters, spaces, apostrophes, and hyphens are allowed"
-                required
-            />
-            <input 
-                type="number" 
-                id="studentGrade" 
-                placeholder="Grade (0-100)" 
-                min="0" 
-                max="100"
-                required
-            />
+            <input type="text" id="studentName" placeholder="Student Name" inputmode="text" pattern="[A-Za-zÀ-ÖØ-öø-ÿ' -]+" title="Only letters, spaces, apostrophes, and hyphens are allowed" />
+            <input type="number" id="studentGrade" placeholder="Grade (0-100)" />
             <button id="addStudentBtn">Add Student</button>
         </div>
 

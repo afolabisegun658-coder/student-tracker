@@ -10,17 +10,12 @@ addStudentBtn.addEventListener("click", addStudent);
 
 function isValidName(name) {
     const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$/;
-    return name.trim().length > 0 && namePattern.test(name);
+    return namePattern.test(name);
 }
 
 function addStudent() {
     const name = studentName.value.trim();
     const grade = Number(studentGrade.value);
-
-    if (!name) {
-        alert("Student name cannot be empty.");
-        return;
-    }
 
     if (!isValidName(name)) {
         alert("Student name must contain only letters, spaces, apostrophes, and hyphens.");
@@ -56,28 +51,15 @@ function renderStudents() {
             row.classList.add("above-average");
         }
 
-        // Create cells safely using textContent instead of innerHTML
-        const nameCell = document.createElement("td");
-        nameCell.textContent = student.name;
-
-        const gradeCell = document.createElement("td");
-        gradeCell.textContent = student.grade;
-
-        const actionCell = document.createElement("td");
-        const deleteBtn = document.createElement("button");
-        deleteBtn.classList.add("delete-btn");
-        deleteBtn.textContent = "Delete";
-        deleteBtn.addEventListener("click", () => {
-            if (confirm(`Are you sure you want to delete ${student.name}?`)) {
-                deleteStudent(student.id);
-            }
-        });
-
-        actionCell.appendChild(deleteBtn);
-
-        row.appendChild(nameCell);
-        row.appendChild(gradeCell);
-        row.appendChild(actionCell);
+        row.innerHTML = `
+            <td>${student.name}</td>
+            <td>${student.grade}</td>
+            <td>
+                <button class="delete-btn" onclick="deleteStudent(${student.id})">
+                    Delete
+                </button>
+            </td>
+        `;
 
         studentList.appendChild(row);
     });
